@@ -1,12 +1,12 @@
-version: '3.1'
-services:
-  postgres:
-    image: postgres
-    ports:
-      - '8080:8000'
-    volumes:
-      - ./data:/var/lib/postgres
-    environment:
-      POSTGRES_PASSWORD: qa
-      POSTGRES_USER: app
-
+    version: '3.1'
+    services:
+      postgresql:
+        image: library/postgres:12-alpine
+        ports:
+        - '3306:3306'
+        volumes:
+        - ./data:/var/lib/postgresql
+        environment:
+        - POSTGRES_USER=app
+        - POSTGRES_PASSWORD=qa
+        - POSTGRES_DB=docker_compose_test
